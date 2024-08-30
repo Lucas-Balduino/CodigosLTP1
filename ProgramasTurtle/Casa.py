@@ -8,6 +8,7 @@ tl.pendown()
 
 tl.pensize(10)
 
+#Quadrado casa
 for i in range(4):
     tl.begin_fill()
     tl.forward(300)
@@ -24,6 +25,7 @@ tl.pendown()
 
 tl.pencolor('brown')
 
+#Janela
 tl.begin_fill()
 for i in range(4):
     tl.forward(80)
@@ -41,6 +43,7 @@ tl.pendown()
 
 tl.pencolor('brown')
 
+#Porta
 tl.begin_fill()
 tl.forward(90)
 tl.left(90)
@@ -62,6 +65,7 @@ tl.pendown()
 
 tl.pencolor('black')
 
+#Telhado
 tl.begin_fill()
 tl.left(40)
 tl.forward(195)
