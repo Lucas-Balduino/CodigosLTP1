@@ -44,7 +44,7 @@ def menu():
         print("//       1. Adicionar livro    //")
         print("//  2. Listar todos os livros  //")
         print("// 3. Buscar livro por título  //")
-        print("//       -1 - Sair             //")
+        print("//       4 - Sair              //")
         print("/////////////////////////////////")
         
         opcao = input("Escolha uma opção: ")
