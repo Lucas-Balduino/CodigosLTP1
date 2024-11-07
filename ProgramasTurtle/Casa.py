@@ -1,6 +1,6 @@
 import turtle as tl
 
-tl.tracer()
+#tl.tracer()
 
 tl.penup()
 tl.setposition(-150,-150)
@@ -73,4 +73,4 @@ tl.right(80)
 tl.forward(195)
 tl.end_fill()
 
-tl.done()
+#tl.done()
