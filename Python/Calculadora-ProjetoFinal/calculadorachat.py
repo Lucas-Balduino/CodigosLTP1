@@ -55,26 +55,44 @@ class CalculadoraGUI:
     def _criar_botoes(self):
         # Botões organizados em uma grade
         botoes = [
+            ("1", lambda: self.numero(1)),
+            ("2", lambda: self.numero(2)),
+            ("3", lambda: self.numero(3)),
+            ("4", lambda: self.numero(4)),
+            ("6", lambda: self.numero(6)),
+            ("5", lambda: self.numero(5)),
+            ("7", lambda: self.numero(7)),
+            ("8", lambda: self.numero(8)),
+            ("9", lambda: self.numero(9)),
             ("+", self.adicionar),
+            ("0", lambda: self.numero(0)),
             ("-", self.subtrair),
             ("*", self.multiplicar),
             ("/", self.dividir),
+            ("=", self.igual),
             ("Zerar", self.zerar),
             ("Sinal", self.mudarSinal)
         ]
 
         for i, (texto, comando) in enumerate(botoes):
             botao = ttk.Button(self.botao_frame, text=texto, command=comando)
-            botao.grid(row=i // 2, column=i % 2, padx=10, pady=10, ipadx=10, ipady=10)
+            botao.grid(row=i // 3, column=i % 3, padx=1, pady=1, ipadx=1, ipady=1)
 
+    def numero(self,numero):
+        self.entrada.insert(tk.END, str(numero))
+
+    def igual(self):
+        self._atualizar_resultado
 
     # Métodos para as operações
     def zerar (self):
-        self.zerarResultado()
+        self.calculadora.resultado = 0
+        self._atualizar_resultado()
         self._limpar_entrada()
 
     def mudarSinal(self):
-        self.mudarSinalResultado()
+        self.calculadora.resultado *= -1
+        self._atualizar_resultado()
         self._limpar_entrada()
 
     def adicionar(self):
@@ -111,14 +129,6 @@ class CalculadoraGUI:
             self.resultado_label.config(text="Erro: Entrada inválida")
             return None
 
-    def zerarResultado(self):
-        self.calculadora.resultado = 0
-        self._atualizar_resultado()
-    
-    def mudarSinalResultado(self):
-        self.calculadora.resultado *= -1
-        self._atualizar_resultado()
-
     def _limpar_entrada(self):
         self.entrada.delete(0, tk.END)
 
@@ -132,6 +142,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = CalculadoraGUI(root)
     root.title("Calculadora Avançada")
-    root.geometry("400x500")
+    root.geometry("500x600")
     root.configure(bg="#f7f9fc")
     root.mainloop()
